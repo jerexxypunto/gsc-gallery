@@ -36,9 +36,8 @@
                 </div>
             </div>
         </div>
+        <?php wp_footer(); ?>
     </footer>
-    
-    <script src="<?php echo get_template_directory_uri()?>/js/plugins.js"></script>
     <script>
         $(window).on("load", function() {
             $('body').addClass('loaded');

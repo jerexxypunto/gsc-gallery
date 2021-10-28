@@ -1,15 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?php language_attributes();?>">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="<?php bloginfo("charset") ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catalog-Z Bootstrap 5.0 HTML Template</title>
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri()?>/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri()?>/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri()?>/css/templatemo-style.css">
-
+    <?php wp_head(); ?>
 </head>
 <body>
+    <?php wp_body_open(); ?>
     <!-- Page Loader -->
     <div id="loader-wrapper">
         <div id="loader"></div>
