@@ -36,3 +36,49 @@
 		);
 	}
 	add_action("after_setup_theme","gsc_add_menus");
+
+	// Registro sidebar
+	function gsc_add_sidebar(){
+		register_sidebar(
+			array(
+				'name' => 'pie de página',
+				'id' => 'pie-pagina',
+				'before_widget' => '',
+				'after_widget' => ''
+			)
+		);
+	}
+
+	add_action('widgets_init','gsc_add_sidebar');
+
+	function gsc_add_post_type(){
+
+		$labels = array(
+			'name' => 'Foto',
+			'singular_name' => 'Foto',
+			'all-items' => 'Todas las fotos',
+			'add_new' => 'Añadir foto'
+		);
+
+		$args = array(
+			'labels'             => $labels,
+			'description'        => 'Fotos para mostrar en galeria.',
+			'public'             => true,
+			'publicly_queryable' => true,
+			'show_in_menu'       => true,
+			'query_var'          => true,
+			'rewrite'            => array( 'slug' => 'foto' ),
+			'capability_type'    => 'post',
+			'has_archive'        => true,
+			'hierarchical'       => false,
+			'menu_position'      => 5,
+			'supports'           => array( 'title', 'editor', 'author', 'thumbnail' ),
+			'taxonomies'         => array('category'),
+			'show_in_rest'       => true,
+			'menu_icon'          => 'dashicons-images-alt'
+		);
+
+		register_post_type('foto',$args);
+	}
+
+	add_action("init","gsc_add_post_type");
