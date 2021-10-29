@@ -1,13 +1,4 @@
 <?php get_header(); ?>
-
-<?php
-  $args = array(
-      "post_type" => array("foto","post"),
-      "post_per_page" => -1
-  );
-
-  $fotos = new WP_Query($args);
-?>
  <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="<?php echo get_template_directory_uri()?>/img/hero.jpg">
         <form class="d-flex tm-search-form">
             <input class="form-control tm-search-input" type="search" placeholder="Search" aria-label="Search">
@@ -28,25 +19,7 @@
                 </form>
             </div>
         </div>
-        <div class="row tm-mb-90 tm-gallery">
-            <?php if($fotos->have_posts()): ?>
-                <?php while($fotos->have_posts()): $fotos->the_post(); ?>
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5 card-picture">
-                    <figure class="effect-ming tm-video-item photo-cover">
-                        <?php the_post_thumbnail('medium_large'); ?>
-                        <figcaption class="d-flex align-items-center justify-content-center">
-                            <h2><?php the_title() ?></h2>
-                            <a href="<?php the_permalink(); ?>">View more</a>
-                        </figcaption>                    
-                    </figure>
-                    <div class="d-flex justify-content-between tm-text-gray">
-                        <span class="tm-text-gray-light"><?php the_date();?></span>
-                        <span><?php the_author(); ?></span>
-                    </div>
-                </div>
-                <?php endwhile; ?>
-            <?php endif; ?>        
-        </div> <!-- row -->
+        <?php get_template_part('template_parts/content','entries'); ?>
         <div class="row tm-mb-90">
             <div class="col-12 d-flex justify-content-between align-items-center tm-paging-col">
                 <a href="javascript:void(0);" class="btn btn-primary tm-btn-prev mb-2 disabled">Previous</a>

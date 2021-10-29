@@ -1,4 +1,4 @@
-   <<header>
+   <header>
         <div id="loader-wrapper">
             <div id="loader"></div>
        
