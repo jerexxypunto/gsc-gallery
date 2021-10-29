@@ -574,6 +574,15 @@ select:not([multiple]) {
     opacity: 1; /* Firefox */
 }
 
+.card-picture .photo-cover img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.card-picture .photo-cover{
+    height: 235px;
+}
+
 @media (max-width: 991px) {
     .navbar-collapse {
         position: fixed;
