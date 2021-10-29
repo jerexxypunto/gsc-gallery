@@ -1,5 +1,5 @@
 <?php
-  	
+  	//Añado CSS & JS
 	  function gsc_add_assets() {
 		wp_register_style("bootstrap",get_template_directory_uri()."/css/bootstrap.min.css",array(), false, "all");
 		wp_register_style("font-awesome",get_template_directory_uri()."/fontawesome/css/all.min.css",array(),false, "all");
@@ -11,6 +11,7 @@
 
     add_action("wp_enqueue_scripts","gsc_add_assets");
 
+	// Habilito: <title>, post-thumbnails, logo
 	function gsc_theme_support(){
 		add_theme_support('title-tag');
 		add_theme_support('post-thumbnails');
@@ -25,6 +26,8 @@
 	}
 	add_action("after_setup_theme","gsc_theme_support");
 
+
+	// Registro Menu principal
 	function gsc_add_menus(){
 		register_nav_menus(
 			array(
