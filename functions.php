@@ -16,11 +16,20 @@
 		add_theme_support('post-thumbnails');
 		add_theme_support('custom-logo',
 			array(
-				"width" => 450,
-				"heigth" => 48,
+				"width" => 158,
+				"height" => 48,
 				"flex-width" => true,
-				"flex-heigth" => true
+				"flex-height" => true
 			)
 		);
 	}
 	add_action("after_setup_theme","gsc_theme_support");
+
+	function gsc_add_menus(){
+		register_nav_menus(
+			array(
+				'menu-principal' => 'Menu principal'
+			)
+		);
+	}
+	add_action("after_setup_theme","gsc_add_menus");
