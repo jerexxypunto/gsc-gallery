@@ -1,11 +1,11 @@
    <header>
-        <div id="loader-wrapper">
+        <!-- <div id="loader-wrapper">
             <div id="loader"></div>
        
             <div class="loader-section section-left"></div>
             <div class="loader-section section-right"></div>
        
-        </div>
+        </div> -->
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="<?php echo home_url()?>">
