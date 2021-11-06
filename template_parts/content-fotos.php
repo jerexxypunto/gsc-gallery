@@ -1,6 +1,6 @@
 <?php
   $args = array(
-      "post_type" => "post",
+      "post_type" => "foto",
       'paged' => get_query_var( 'paged' ),
       "post_per_page" => -1
   );
@@ -51,9 +51,19 @@
 }
 ?>
         
+        <div class="row mb-4">
+            <h2 class="col-6 tm-text-primary">
+                Últimas fotos
+            </h2>
+            <div class="col-6 d-flex justify-content-end align-items-center">
+                <form action="" class="tm-text-primary">
+                    Page <input type="text" value="1" size="1" class="tm-input-paging tm-text-primary"> of 200
+                </form>
+            </div>
+        </div> 
         <div class="row tm-mb-90 tm-gallery">
-            <?php if(have_posts()): ?>
-                <?php while(have_posts()):the_post(); ?>
+            <?php if($fotos->have_posts()): ?>
+                <?php while($fotos->have_posts()): $fotos->the_post(); ?>
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5 card-picture">
                     <figure class="effect-ming tm-video-item photo-cover">
                         <?php if(has_post_thumbnail()){
@@ -73,5 +83,5 @@
             <?php endif; ?>        
         </div> <!-- row -->
         <div class="container">
-            <?php echo bootstrap_pagination(); ?>
+            <?php echo bootstrap_pagination($fotos); ?>
         </div>

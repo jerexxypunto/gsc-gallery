@@ -9,17 +9,7 @@
     </div>
 
     <div class="container-fluid tm-container-content tm-mt-60">
-        <div class="row mb-4">
-            <h2 class="col-6 tm-text-primary">
-                Últimas publicaciones
-            </h2>
-            <div class="col-6 d-flex justify-content-end align-items-center">
-                <form action="" class="tm-text-primary">
-                    Page <input type="text" value="1" size="1" class="tm-input-paging tm-text-primary"> of 200
-                </form>
-            </div>
-        </div>
         <?php 
-            get_template_part('template_parts/content','entries'); 
+            get_template_part('template_parts/content','fotos'); 
         ?>
 <?php get_footer(); ?>
