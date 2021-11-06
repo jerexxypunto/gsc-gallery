@@ -160,6 +160,13 @@ a:hover { color:#009999; }
     font-size: 1.2rem;
 }
 
+.next.page-link{
+    width: max-content;
+}
+.prev.page-link {
+    width: max-content;
+}
+
 .btn-primary:hover,
 .btn-primary:focus {
     background-color:#086969;
@@ -348,7 +355,7 @@ p, .tm-text-gray { color: #999; }
     }
 }
 
-.tm-paging-link {
+.page-link {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -363,8 +370,8 @@ p, .tm-text-gray { color: #999; }
     transition: all 0.3s ease;
 }
 
-.tm-paging-link:hover,
-.tm-paging-link.active {
+.page-link:hover,
+.page-link.active {
     background-color: #009999;
     color: #fff; 
 }

@@ -46,10 +46,10 @@ function bootstrap_pagination( \WP_Query $wp_query = null, $echo = true ) {
 	if ( is_array( $pages ) ) {
 		$paged = ( get_query_var( 'paged' ) == 0 ) ? 1 : get_query_var( 'paged' );
 
-		$pagination = '<div class="pagination"><ul class="pagination">';
+		$pagination = '<div class="pagination"><ul class="tm-paging d-flex">';
 
 		foreach ($pages as $page) {
-                        $pagination .= '<li class="page-item '.(strpos($page, 'current') !== false ? 'active' : '').'"> ' . str_replace( 'page-numbers', 'page-link', $page ) . '</li>';
+                        $pagination .= '<li class="tm-paging-link '.(strpos($page, 'current') !== false ? 'active' : '').'"> ' . str_replace( 'page-numbers', 'tm-paging-link ', $page ) . '</li>';
                 }
 
 		$pagination .= '</ul></div>';
