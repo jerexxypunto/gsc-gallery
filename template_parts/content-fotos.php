@@ -23,8 +23,8 @@
 			'end_size'     => 3,
 			'mid_size'     => 1,
 			'prev_next'    => true,
-			'prev_text'    => __( '« Anterior' ),
-			'next_text'    => __( 'Siguiente »' ),
+			'prev_text'    => __( 'Anterior' ),
+			'next_text'    => __( 'Siguiente' ),
 			'add_args'     => false,
 			'add_fragment' => ''
 		]
@@ -57,7 +57,16 @@
             </h2>
             <div class="col-6 d-flex justify-content-end align-items-center">
                 <form action="" class="tm-text-primary">
-                    Page <input type="text" value="1" size="1" class="tm-input-paging tm-text-primary"> of 200
+                    <?php
+                      $curent_page = $fotos->query["paged"];
+                      $quantity_pages;
+                      if ($curent_page == 0){
+                          $quantity_pages = 1;
+                      }else if ($curent_page >= 1){
+                          $quantity_pages = $curent_page;
+                      }
+                    ?>
+                    Página <input type="text" value="<?php echo $quantity_pages;?>" size="1" class="tm-input-paging tm-text-primary"> of  <?php echo $fotos->max_num_pages; ?>
                 </form>
             </div>
         </div> 
@@ -80,8 +89,8 @@
                     </div>
                 </div>
                 <?php endwhile; ?>
-            <?php endif; ?>        
+            <?php endif; ?>
+            <div class="col-12">
+                <?php echo bootstrap_pagination($fotos); ?>
+            </div>        
         </div> <!-- row -->
-        <div class="container">
-            <?php echo bootstrap_pagination($fotos); ?>
-        </div>

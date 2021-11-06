@@ -23,8 +23,8 @@
 			'end_size'     => 3,
 			'mid_size'     => 1,
 			'prev_next'    => true,
-			'prev_text'    => __( '« Anterior' ),
-			'next_text'    => __( 'Siguiente »' ),
+			'prev_text'    => __( 'Anterior' ),
+			'next_text'    => __( 'Siguiente' ),
 			'add_args'     => false,
 			'add_fragment' => ''
 		]
@@ -70,8 +70,8 @@
                     </div>
                 </div>
                 <?php endwhile; ?>
-            <?php endif; ?>        
+            <?php endif; ?>     
+            <div class="col-12">
+                <?php echo bootstrap_pagination(); ?> 
+            </div>  
         </div> <!-- row -->
-        <div class="container">
-            <?php echo bootstrap_pagination(); ?>
-        </div>
