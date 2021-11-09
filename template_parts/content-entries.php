@@ -77,5 +77,5 @@
             <?php endif; ?>     
             <div class="col-12">
                 <?php echo bootstrap_pagination(); ?> 
-            </div>  
+            </div>
         </div> <!-- row -->
