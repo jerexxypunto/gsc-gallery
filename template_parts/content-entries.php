@@ -50,7 +50,11 @@
 	return null;
 }
 ?>
-        
+         <div class="row mb-4">
+            <h2 class="col-6 tm-text-primary">
+                Últimas entradas
+            </h2>
+        </div> 
         <div class="row tm-mb-90 tm-gallery">
             <?php if(have_posts()): ?>
                 <?php while(have_posts()):the_post(); ?>

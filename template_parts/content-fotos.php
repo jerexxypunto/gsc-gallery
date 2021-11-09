@@ -1,96 +1,44 @@
 <?php
   $args = array(
-      "post_type" => "foto",
-      'paged' => get_query_var( 'paged' ),
-      "post_per_page" => -1
+      "post_type" => "foto"
   );
 
   $fotos = new WP_Query($args);
-
-  function bootstrap_pagination( \WP_Query $wp_query = null, $echo = true ) {
-
-	if ( null === $wp_query ) {
-		global $wp_query;
-	}
-
-	$pages = paginate_links( [
-			'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
-			'format'       => '?paged=%#%',
-			'current'      => max( 1, get_query_var( 'paged' ) ),
-			'total'        => $wp_query->max_num_pages,
-			'type'         => 'array',
-			'show_all'     => false,
-			'end_size'     => 3,
-			'mid_size'     => 1,
-			'prev_next'    => true,
-			'prev_text'    => __( 'Anterior' ),
-			'next_text'    => __( 'Siguiente' ),
-			'add_args'     => false,
-			'add_fragment' => ''
-		]
-	);
-
-	if ( is_array( $pages ) ) {
-		$paged = ( get_query_var( 'paged' ) == 0 ) ? 1 : get_query_var( 'paged' );
-
-		$pagination = '<div class="pagination"><ul class="pagination">';
-
-		foreach ($pages as $page) {
-                        $pagination .= '<li class="page-item '.(strpos($page, 'current') !== false ? 'active' : '').'"> ' . str_replace( 'page-numbers', 'page-link', $page ) . '</li>';
-                }
-
-		$pagination .= '</ul></div>';
-
-		if ( $echo ) {
-			echo $pagination;
-		} else {
-			return $pagination;
-		}
-	}
-	return null;
-}
 ?>
         
         <div class="row mb-4">
             <h2 class="col-6 tm-text-primary">
                 Últimas fotos
             </h2>
-            <div class="col-6 d-flex justify-content-end align-items-center">
-                <form action="" class="tm-text-primary">
-                    <?php
-                      $curent_page = $fotos->query["paged"];
-                      $quantity_pages;
-                      if ($curent_page == 0){
-                          $quantity_pages = 1;
-                      }else if ($curent_page >= 1){
-                          $quantity_pages = $curent_page;
-                      }
-                    ?>
-                    Página <input type="text" value="<?php echo $quantity_pages;?>" size="1" class="tm-input-paging tm-text-primary"> of  <?php echo $fotos->max_num_pages; ?>
-                </form>
-            </div>
         </div> 
-        <div class="row tm-mb-90 tm-gallery">
-            <?php if($fotos->have_posts()): ?>
-                <?php while($fotos->have_posts()): $fotos->the_post(); ?>
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5 card-picture">
-                    <figure class="effect-ming tm-video-item photo-cover">
-                        <?php if(has_post_thumbnail()){
-                            the_post_thumbnail('medium_large');
-                        } ?>
-                        <figcaption class="d-flex align-items-center justify-content-center">
-                            <h2><?php the_title() ?></h2>
-                            <a href="<?php the_permalink(); ?>">View more</a>
-                        </figcaption>                    
-                    </figure>
-                    <div class="d-flex justify-content-between tm-text-gray">
-                        <span class="tm-text-gray-light"><?php the_date();?></span>
-                        <span><?php the_author(); ?></span>
+        <div class="tm-gallery-fotos-container">
+            <div class="nowrap row tm-mb-90 tm-gallery">
+                <?php if($fotos->have_posts()): ?>
+                    <?php while($fotos->have_posts()): $fotos->the_post(); ?>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5 card-picture">
+                        <figure class="effect-ming tm-video-item photo-cover">
+                            <?php if(has_post_thumbnail()){
+                                the_post_thumbnail('medium_large');
+                            } ?>
+                            <figcaption class="d-flex align-items-center justify-content-center">
+                                <h2><?php the_title() ?></h2>
+                                <a href="<?php the_permalink(); ?>">View more</a>
+                            </figcaption>                    
+                        </figure>
+                        <div class="d-flex justify-content-between tm-text-gray">
+                            <span class="tm-text-gray-light"><?php the_date();?></span>
+                            <span><?php the_author(); ?></span>
+                        </div>
                     </div>
-                </div>
-                <?php endwhile; ?>
-            <?php endif; ?>
-            <div class="col-12">
-                <?php echo bootstrap_pagination($fotos); ?>
-            </div>        
-        </div> <!-- row -->
+                    <?php endwhile; ?>
+                <?php endif; ?>
+            </div> <!-- row -->
+            <div id="fotos" class="arrow-button-container">
+                <button class="boton-derecha">
+                    <span class="fas fa-chevron-left"></span>
+                </button>
+                <button class="boton-izquierda">
+                    <span class="fas fa-chevron-right"></span>
+                </button>
+            </div>
+        </div>
