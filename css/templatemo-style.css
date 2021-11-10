@@ -599,6 +599,50 @@ select:not([multiple]) {
     object-fit: cover;
 }
 
+.nowrap-tm-galery-container,
+.nowrap-tm-entradas-container {
+    overflow-x: hidden;
+}
+
+.nowrap {
+    flex-wrap: nowrap !important;
+    transition: .2s ease-in-out;
+}
+
+.tm-gallery-fotos-container,
+.tm-gallery-entradas-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.tm-gallery-fotos-container button,
+.tm-gallery-entradas-container button {
+    height: 100%;
+    font-size: 30px;
+    border: none;
+    background-color: transparent;
+    color: #9c0;
+}
+
+.tm-gallery-fotos-container {
+    position: relative;
+}
+
+.tm-gallery-fotos-container .boton-fotos {
+    position: absolute;
+    z-index: 10;
+}
+
+.tm-gallery-fotos-container .boton-derecha {
+    right: -40px;
+}
+
+.tm-gallery-fotos-container .boton-izquierda {
+    left: -40px;
+}
+
+
 .modalFullize{
     background-color: rgba(255, 255, 255,0.5);
     box-shadow: 2px 2px 3px rgba(0,0,0,.3);
