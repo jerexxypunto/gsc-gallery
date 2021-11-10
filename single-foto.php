@@ -28,16 +28,19 @@
                                 <button id="openFullScreen" class="btn btn-primary tm-btn-big">Full-Size</button>
                             </div>                    
                             <div class="mb-4 d-flex flex-wrap">
-                                <div class="mr-4 mb-2">
-                                    <span class="tm-text-gray-dark">Dimension: </span><span class="tm-text-primary">1920x1080</span>
+                                <div id="foto-data-size" class="mr-4 mb-2">
+                                    <span class="tm-text-gray-dark">Tamaño de imagen: </span><span class="tm-text-primary photo-size photo-size-width">0</span>x<span class="tm-text-primary photo-size photo-size-heigth">0</span> px
                                 </div>
                                 <div class="mr-4 mb-2">
-                                    <span class="tm-text-gray-dark">Format: </span><span class="tm-text-primary">JPG</span>
+                                    <span class="tm-text-gray-dark">Formato: </span><span id="photo-format" class="tm-text-primary">JPG</span>
                                 </div>
                             </div>
-                            <div class="mb-4">
+                            <div class="mb-4 photo-autor">
                                 <h3 class="tm-text-gray-dark mb-3">Fotografo</h3>
-                                  <?php the_author(); ?>  
+                                <div>
+                                  <figure><?php echo get_avatar(get_the_author_meta('ID'), 30); ?></figure>
+                                  <p><?php the_author(); ?></p>
+                                </div>
                               </div>
                             <div>
                                 <h3 class="tm-text-gray-dark mb-3">Categorias</h3>

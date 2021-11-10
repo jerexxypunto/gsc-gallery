@@ -646,6 +646,32 @@ select:not([multiple]) {
     height: 100%;
     object-fit: contain;
 }
+.photo-autor{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.photo-autor > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.photo-autor p{
+    margin: 0;
+    padding: 0;
+}
+.photo-autor figure{
+    border-radius: 50%;
+    overflow: hidden;
+    width: max-content;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.photo-autor figure img{
+    display: block;
+    margin: 0;
+    padding: 0;
+}
 
 @media (max-width: 991px) {
     .navbar-collapse {
