@@ -594,45 +594,87 @@ select:not([multiple]) {
     height: 235px;
 }
 
+.photo-detail .photo-thumb img{
+    width: 100%;
+    object-fit: cover;
+}
 
-.nowrap-tm-galery-container,
-.nowrap-tm-entradas-container {
-    overflow-x: hidden;
+.modalFullize{
+    background-color: rgba(255, 255, 255,0.5);
+    box-shadow: 2px 2px 3px rgba(0,0,0,.3);
+    position: absolute;
+    top: 0;
+    transform: scale(0);
+    z-index: -1;
+    transition: .2s ease-in-out;
 }
-.nowrap{
-    flex-wrap:nowrap !important;
-    transition:  .2s ease-in-out;
+.modalFullize.actived{
+    position: fixed;
+    z-index: 10;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    transform: scale(1);
+
 }
-.tm-gallery-fotos-container,
-.tm-gallery-entradas-container {
+.modalFullize__cerrar{
+    border: none;
+    color:tomato;
+    background-color: transparent;
+    position: absolute;
+    top: 5px;
+    right: 2.5vw;
+}
+.modalFullize__cerrar span{
+    font-size: 25px;
+}
+.modalFullsize__content{
+    padding-top: 50px;
+    padding-bottom: 15px;
+    width: 95%;
+    margin: 0 auto;
+    height: 100%;
+}
+.modalFullsize__content > * {
+    width: 100%;
+    height: 100%;
+}
+.modalFullsize__content > * > figure {
+    width: 100%;
+    height: 100%;
+    display: block !important;
+}
+.modalFullsize__content img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.photo-autor{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.photo-autor > div {
     display: flex;
     align-items: center;
-    margin-bottom: 60px;
+    justify-content: space-around;
+}
+.photo-autor p{
+    margin: 0;
+    padding: 0;
+}
+.photo-autor figure{
+    border-radius: 50%;
+    overflow: hidden;
+    width: max-content;
+    margin-bottom: 0;
+    padding: 0;
 }
 
-.tm-gallery-fotos-container button,
-.tm-gallery-entradas-container button {
-    height: 100%;
-    font-size: 30px;
-    border: none;
-    background-color: transparent;
-    color:#9c0;
-}
-
-.tm-gallery-fotos-container{
-    position: relative;
-}
-
-.tm-gallery-fotos-container .boton-fotos {
-    position: absolute;
-    z-index: 10;
-}
-
-.tm-gallery-fotos-container .boton-derecha{
-    right: -40px;    
-}
-.tm-gallery-fotos-container .boton-izquierda{
-    left: -40px;    
+.photo-autor figure img{
+    display: block;
+    margin: 0;
+    padding: 0;
 }
 
 @media (max-width: 991px) {
