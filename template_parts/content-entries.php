@@ -60,7 +60,7 @@
                 <?php if(have_posts()): ?>
                     <?php while(have_posts()):the_post(); ?>
                     <div class="col-4 mb-5 card-picture">
-                        <figure class="effect-ming tm-video-item photo-cover">
+                        <figure class="effect-ming tm-entry-item photo-cover">
                             <?php if(has_post_thumbnail()){
                                 the_post_thumbnail('medium_large');
                             } ?>

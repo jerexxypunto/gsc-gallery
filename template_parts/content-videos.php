@@ -20,7 +20,7 @@
                     <div class="nowrap row tm-gallery">
                         <?php if($video->have_posts()): ?>
                             <?php while($video->have_posts()): $video->the_post(); ?>
-                            <div class="col-4 card-picture">
+                            <div class="col-4 mb-5 card-picture">
                                 <figure class="effect-ming tm-custom-post-item photo-cover">
                                     <?php if(has_post_thumbnail()){
                                         the_post_thumbnail('medium_large');
