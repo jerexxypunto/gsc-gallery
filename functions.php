@@ -54,20 +54,20 @@
 	function gsc_add_post_type(){
 
 		$labels = array(
-			'name' => 'Foto',
-			'singular_name' => 'Foto',
-			'all-items' => 'Todas las fotos',
-			'add_new' => 'Añadir foto'
+			'name' => 'Video',
+			'singular_name' => 'Video',
+			'all-items' => 'Todas las videos',
+			'add_new' => 'Añadir video'
 		);
 
 		$args = array(
 			'labels'             => $labels,
-			'description'        => 'Fotos para mostrar en galeria.',
+			'description'        => 'Videos para mostrar en galeria.',
 			'public'             => true,
 			'publicly_queryable' => true,
 			'show_in_menu'       => true,
 			'query_var'          => true,
-			'rewrite'            => array( 'slug' => 'foto' ),
+			'rewrite'            => array( 'slug' => 'video' ),
 			'capability_type'    => 'post',
 			'has_archive'        => true,
 			'hierarchical'       => false,
@@ -75,10 +75,10 @@
 			'supports'           => array( 'title', 'editor', 'author', 'thumbnail' ),
 			'taxonomies'         => array('category'),
 			'show_in_rest'       => true,
-			'menu_icon'          => 'dashicons-images-alt'
+			'menu_icon'          => 'dashicons-editor-video'
 		);
 
-		register_post_type('foto',$args);
+		register_post_type('video',$args);
 	}
 
 	add_action("init","gsc_add_post_type");

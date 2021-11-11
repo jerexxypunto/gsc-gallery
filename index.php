@@ -10,7 +10,7 @@
 
     <div class="container-fluid tm-container-content tm-mt-60 sliders-entradas">
         <?php 
-            get_template_part('template_parts/content','fotos');
+            get_template_part('template_parts/content','videos');
             get_template_part('template_parts/content','entries');
         ?>
 <?php get_footer(); ?>
