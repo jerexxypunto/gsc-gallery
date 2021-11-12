@@ -12,5 +12,6 @@
         <?php 
             get_template_part('template_parts/content','fotos');
             get_template_part('template_parts/content','entries');
+            get_template_part('template_parts/content','videos');
         ?>
 <?php get_footer(); ?>

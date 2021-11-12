@@ -1,26 +1,26 @@
 <?php
   $args = array(
-      "post_type" => "foto"
+      "post_type" => "video"
   );
 
-  $fotos = new WP_Query($args);
+  $video = new WP_Query($args);
 ?>
         
         <div class="container">
             <div class="row mb-4">
                 <h2 class="col-6 tm-text-primary">
-                    Últimas fotos
+                    Últimos video
                 </h2>
             </div> 
             <div class="tm-gallery-custom-post-container">
-                <button class="boton-izquierda boton-custom-post">
+                <button class="boton-izquierda boton-custom-post boton-custom-post">
                     <span class="fas fa-chevron-left"></span>
                 </button>
                 <div class="nowrap-tm-galery-container">
                     <div class="nowrap row tm-gallery">
-                        <?php if($fotos->have_posts()): ?>
-                            <?php while($fotos->have_posts()): $fotos->the_post(); ?>
-                            <div class="col-4 card-picture">
+                        <?php if($video->have_posts()): ?>
+                            <?php while($video->have_posts()): $video->the_post(); ?>
+                            <div class="col-4 mb-5 card-picture">
                                 <figure class="effect-ming tm-custom-post-item photo-cover">
                                     <?php if(has_post_thumbnail()){
                                         the_post_thumbnail('medium_large');
@@ -39,7 +39,7 @@
                         <?php endif; ?>
                     </div> <!-- row -->
                 </div>
-                <button class="boton-derecha boton-fotos">
+                <button class="boton-derecha boton-custom-post boton-custom-post">
                     <span class="fas fa-chevron-right"></span>
                 </button>
             </div>

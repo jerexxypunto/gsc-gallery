@@ -51,7 +51,7 @@
 
 	add_action('widgets_init','gsc_add_sidebar');
 
-	function gsc_add_post_type(){
+	function gsc_add_post_type_foto(){
 
 		$labels = array(
 			'name' => 'Foto',
@@ -81,4 +81,36 @@
 		register_post_type('foto',$args);
 	}
 
-	add_action("init","gsc_add_post_type");
+	add_action("init","gsc_add_post_type_foto");
+
+	function gsc_add_post_type_video(){
+
+		$labels = array(
+			'name' => 'Video',
+			'singular_name' => 'Video',
+			'all-items' => 'Todos los videos',
+			'add_new' => 'Añadir video'
+		);
+
+		$args = array(
+			'labels'             => $labels,
+			'description'        => 'Videos para mostrar en galeria.',
+			'public'             => true,
+			'publicly_queryable' => true,
+			'show_in_menu'       => true,
+			'query_var'          => true,
+			'rewrite'            => array( 'slug' => 'video'),
+			'capability_type'    => 'post',
+			'has_archive'        => true,
+			'hierarchical'       => false,
+			'menu_position'      => 5,
+			'supports'           => array( 'title', 'editor', 'author', 'thumbnail' ),
+			'taxonomies'         => array('category'),
+			'show_in_rest'       => true,
+			'menu_icon'          => 'dashicons-editor-video'
+		);
+
+		register_post_type('video',$args);
+	}
+
+	add_action("init","gsc_add_post_type_video");

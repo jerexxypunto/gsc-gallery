@@ -20,7 +20,7 @@
                       <?php the_post_thumbnail('large'); ?>
                     </div>
                     <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12">
-                        <div class="tm-bg-gray tm-video-details">
+                        <div class="tm-bg-gray tm-foto-details">
                             <p class="mb-4">
                               Haga click aquí para ver en pantalla completa la foto.    
                             </p>
@@ -51,18 +51,10 @@
                         </div>
                     </div>
                 </div>
-                <div id="modalFullize" class="modalFullize">
-                  <button class="modalFullize__cerrar">
-                    <span class="fas fa-window-close"></span>
-                  </button>
-                  <section class="modalFullsize__content">
-                      <?php the_content() ?>
-                    </section>
-                </div>
+                
               <?php  
                 endwhile;
               endif;
             ?>
     </div>
-    <script src="<?php echo get_template_directory_uri()?>/js/single-photo.js"></script>
 <?php get_footer() ?>
