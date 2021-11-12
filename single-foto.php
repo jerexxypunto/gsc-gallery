@@ -51,10 +51,18 @@
                         </div>
                     </div>
                 </div>
-                
+               <div id="modalFullize" class="modalFullize">
+                  <button class="modalFullize__cerrar">
+                    <span class="fas fa-window-close"></span>
+                  </button>
+                  <section class="modalFullsize__content">
+                      <?php the_content() ?>
+                    </section>
+                </div>
               <?php  
                 endwhile;
               endif;
             ?>
     </div>
+    <script src="<?php echo get_template_directory_uri()?>/js/single-photo.js"></script>
 <?php get_footer() ?>
