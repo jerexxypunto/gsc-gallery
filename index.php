@@ -13,5 +13,6 @@
             get_template_part('template_parts/content','fotos');
             get_template_part('template_parts/content','entries');
             get_template_part('template_parts/content','videos');
+            get_template_part('template_parts/content','musica');
         ?>
 <?php get_footer(); ?>

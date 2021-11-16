@@ -103,7 +103,7 @@
 			'capability_type'    => 'post',
 			'has_archive'        => true,
 			'hierarchical'       => false,
-			'menu_position'      => 5,
+			'menu_position'      => 6,
 			'supports'           => array( 'title', 'editor', 'author', 'thumbnail' ),
 			'taxonomies'         => array('category'),
 			'show_in_rest'       => true,
@@ -114,3 +114,34 @@
 	}
 
 	add_action("init","gsc_add_post_type_video");
+	function gsc_add_post_type_music(){
+
+		$labels = array(
+			'name' => 'Música',
+			'singular_name' => 'Música',
+			'all-items' => 'Todas las Canciones',
+			'add_new' => 'Añadir Canción'
+		);
+
+		$args = array(
+			'labels'             => $labels,
+			'description'        => 'Canciones para mostrar.',
+			'public'             => true,
+			'publicly_queryable' => true,
+			'show_in_menu'       => true,
+			'query_var'          => true,
+			'rewrite'            => array( 'slug' => 'musica'),
+			'capability_type'    => 'post',
+			'has_archive'        => true,
+			'hierarchical'       => false,
+			'menu_position'      => 7,
+			'supports'           => array( 'title', 'editor', 'author', 'thumbnail' ),
+			'taxonomies'         => array('category'),
+			'show_in_rest'       => true,
+			'menu_icon'          => 'dashicons-format-audio'
+		);
+
+		register_post_type('musica',$args);
+	}
+
+	add_action("init","gsc_add_post_type_music");
