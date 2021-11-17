@@ -46,6 +46,11 @@ const changeSong = ()=>{
     currentCaratula.setAttribute("src", currentCaratulaSrc);
     currentCaratula.setAttribute("srcset", currentCaratulaSrc);
     prueba = setInterval(() => {
+      for (let index = 0; index < allSongBox.children.length; index++) {
+        allSongBox.children[index].classList.remove("active");
+        
+      }
+      allSongBox.children[counter].classList.add("active");
       const tiempo = timePersent(audio_output[counter]);
       if (!tiempo) progressBar.style.width = "100%";
       else {
@@ -56,6 +61,25 @@ const changeSong = ()=>{
     }, 1000);
 }
 
+
+const create_singular_song = (image, title) =>{
+  const section = document.createElement("SECTION");
+  const hr = document.createElement("HR");
+  const img = document.createElement("IMG");
+  const h3 = document.createElement("H3");
+
+  h3.textContent = title;
+  img.setAttribute("src",image);
+  section.classList.add("song-singular");
+
+
+  section.appendChild(img);
+  section.appendChild(h3);
+  section.appendChild(hr);
+
+
+  return section;
+}
 
 const caratulas = document.querySelectorAll(".letra img");
 const info_song = document.querySelectorAll(".letra h2");
@@ -72,11 +96,16 @@ const currentSong = document.querySelector("#current-song h2");
 const currentCaratula = document.querySelector(".caratula img");
 const buttonBefore = document.querySelector("#antes");
 const buttonAfter = document.querySelector("#despues");
+const allSongBox = document.getElementById("all-songs");
+const fragment = document.createDocumentFragment();
 
 
 const fullSong = audio_output.length - 1;
 let counter = 0;
 let currentCaratulaSrc ;
+
+const arrayObjetSong = [];
+
 
 const volumenRange = document.querySelector("#volumenContainer input");
 
@@ -89,6 +118,16 @@ const vButton = document.querySelector("#volumenContainer button");
 const containVolume = document.querySelector(
   "#volumenContainer .volumen-contenedor"
 );
+
+
+addEventListener("DOMContentLoaded",()=>{
+  for (let i = 0; i < caratulas.length; i++) {
+    arrayObjetSong.push(create_singular_song(caratulas[i].src,info_song[i].textContent));
+  }
+  fragment.append(... arrayObjetSong);
+
+  allSongBox.appendChild(fragment);
+});
 
 vButton.addEventListener("click", () => {
   containVolume.classList.toggle("activo");
